@@ -1,5 +1,7 @@
 # yoolur
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/caseyWebb/yoolur.svg)](https://greenkeeper.io/)
+
 Sometimes I like to get wine drunk and solve [Project Euler](https://projecteuler.net) problems. All solutions are guaranteed inebriated.
 
 ## Usage
