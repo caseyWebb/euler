@@ -3,7 +3,7 @@
     "target": "esnext",
     "module": "commonjs",
     "noImplicitAny": true,
-    "isolatedModules": true,
-    "strict": true
+    "strict": true,
+    "alwaysStrict": true
   }
 }
