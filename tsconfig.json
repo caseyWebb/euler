@@ -2,6 +2,8 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "commonjs",
+    "noImplicitAny": true,
+    "isolatedModules": true,
     "strict": true
   }
 }
