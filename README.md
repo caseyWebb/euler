@@ -1,6 +1,6 @@
 # yoolur
 
-Sometimes I like to get wine drunk and solve [Project Euler](https://projecteuler.net) problems. All solutions are guaranteed inebriated.
+Sometimes I like to get wine drunk and solve [Project Euler](https://projecteuler.net) problems. All solutions are guaranteed two (or three) sheets to the wind.
 
 ## Usage
 
