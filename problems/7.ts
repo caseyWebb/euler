@@ -1,3 +1,5 @@
+export { }
+
 const primes = primeGenerator()
 let v = 0
 

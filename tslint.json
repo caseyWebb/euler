@@ -4,6 +4,8 @@
     "curly": true,
     "quotemark": [true, "single"],
     "semicolon": [true, "never"],
-    "trailing-comma": [true, "never"]
+    "trailing-comma": [true, "never"],
+    "variable-name": [true, "allow-leading-underscore"],
+    "no-console": false
   }
 }
