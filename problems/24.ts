@@ -15,7 +15,7 @@ const sortedPermutations = (function* () {
     while (arr[j] <= arr[i - 1]) {
       j--
     }
-    
+
     {
       const temp = arr[i - 1]
       arr[i - 1] = arr[j]
