@@ -6,6 +6,7 @@
     "semicolon": [true, "never"],
     "trailing-comma": [true, "never"],
     "variable-name": [true, "allow-leading-underscore"],
-    "no-console": false
+    "no-console": false,
+    "member-ordering": [true, "instance-sandwich"]
   }
 }
