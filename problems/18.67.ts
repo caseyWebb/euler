@@ -1,18 +1,17 @@
-import * as path from 'path'
 import * as fs from 'fs'
+import * as path from 'path'
 
 const triangle = fs.readFile(path.resolve(__dirname, '../input/67.txt'), (err, data) => {
-  const triangle: number[][] = data
+  const t: number[][] = data
     .toString()
     .split('\n')
-    .map((row) => row.split(' ').map((nStr) => parseInt(nStr)))
-  
-  for (let r = triangle.length - 2; r >= 0; r--) {
-    for (let i = 0; i < triangle[r].length; i++) {
-      triangle[r][i] += Math.max(triangle[r + 1][i], triangle[r + 1][i + 1])
+    .map((row) => row.split(' ').map((nStr) => parseInt(nStr, 10)))
+
+  for (let r = t.length - 2; r >= 0; r--) {
+    for (let i = 0; i < t[r].length; i++) {
+      t[r][i] += Math.max(t[r + 1][i], t[r + 1][i + 1])
     }
   }
 
-  console.log(triangle[0][0])
+  console.log(t[0][0])
 })
-

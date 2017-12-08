@@ -1,10 +1,4 @@
-let _s = 0
-
-for (const v of generatePrimes()) {
-  _s += v
-}
-
-console.log(_s)
+import { isPrime, time } from './lib'
 
 function* generatePrimes() {
   let i = 2
@@ -16,11 +10,10 @@ function* generatePrimes() {
   }
 }
 
-function isPrime(n: number) {
-  for (let i = 2; i <= Math.sqrt(n); i++) {
-    if (n % i === 0) {
-      return false
-    }
+let _s = 0
+time(() => {
+  for (const v of generatePrimes()) {
+    _s += v
   }
-  return true
-}
+})
+console.log(_s)

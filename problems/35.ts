@@ -17,6 +17,7 @@ function rotate(n: number, i: number) {
   const head = nStr.slice(0, i)
   const tail = nStr.slice(i)
   return parseInt(tail + head, 10)
+  // must account for zeros, so this doesn't work
   // const [begin, ...rest] = n.toString()
   // return parseInt([...rest, begin].join(''), 10)
 }

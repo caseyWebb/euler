@@ -47,11 +47,40 @@ export class BigNum {
     return new BigNum(...result)
   }
 
-  public static product(x: BigNum, y: BigNum): BigNum {
-    let result = new BigNum(0)
+  // public static product(x: BigNum, y: BigNum): BigNum {
+  //   let result = new BigNum(0)
 
-    // lazy, rewrite if/when it matters
-    x.loop(() => result = BigNum.sum(result, y))
+  //   // lazy, rewrite if/when it matters
+  //   x.loop(() => result = BigNum.sum(result, y))
+
+  //   return result
+  // }
+
+  public static product(x: BigNum, y: BigNum): BigNum {
+    let result = new BigNum()
+
+    for (let i = 0; i < x.digits.length; i++) {
+      let remainder = 0
+      const dX = x.digits[i]
+      const lineDigits = []
+      for (let j = 0; j < i; j++) {
+        lineDigits.push(0)
+      }
+      for (const dY of y.digits) {
+        let dMult = dX * dY + remainder
+        if (dMult > 9) {
+          remainder = Math.floor(dMult / 10)
+          dMult %= 10
+        } else {
+          remainder = 0
+        }
+        lineDigits.push(dMult)
+      }
+      if (remainder) {
+        lineDigits.push(...remainder.toString().split('').map((d) => parseInt(d, 10)))
+      }
+      result = BigNum.sum(result, new BigNum(...lineDigits))
+    }
 
     return result
   }
