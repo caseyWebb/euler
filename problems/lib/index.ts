@@ -1,4 +1,5 @@
 export * from './BigNum'
+export * from './digits'
 export * from './permute'
 export * from './primes'
 export * from './time'
