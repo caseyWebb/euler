@@ -1,5 +1,6 @@
 export * from './BigNum'
 export * from './digits'
+export * from './factorial'
 export * from './permute'
 export * from './primes'
 export * from './time'
