@@ -23,10 +23,10 @@ export function isPrime(n: number) {
   if (n === 1) {
     return false
   }
-  if (digitSum(n) % 3 === 0) {
+  if (n !== 3 && digitSum(n) % 3 === 0) {
     return false
   }
-  {
+  if (n >= 10) {
     const lastDigit = n % 10
     switch (lastDigit) {
       case 1:

@@ -23,6 +23,10 @@ export class BigNum {
     }
   }
 
+  public digitSum(): number {
+    return this.digits.reduce((s, d) => s + d)
+  }
+
   public static fromInt(n: number) {
     return new BigNum(...n.toString().split('').reverse().map((d) => parseInt(d, 10)))
   }
