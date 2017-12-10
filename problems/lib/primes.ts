@@ -33,6 +33,7 @@ export function isPrime(n: number) {
       case 3:
       case 7:
       case 8:
+      case 9:
         break
       default:
         return false
