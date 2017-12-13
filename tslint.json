@@ -1,7 +1,7 @@
 {
   "extends": "tslint:recommended",
   "rules": {
-    "curly": true,
+    "curly": [true, "ignore-same-line"],
     "quotemark": [true, "single"],
     "semicolon": [true, "never"],
     "trailing-comma": [true, "never"],

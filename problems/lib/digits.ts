@@ -17,12 +17,15 @@ export function numDigits(n: number) {
 }
 
 export function getDigits(n: number) {
-  const digits = []
-  while (n !== 0) {
-    digits.push(n % 10)
-    n = Math.floor(n / 10)
-  }
-  return digits
+  return n.toString().split('').map((d) => parseInt(d, 10))
+
+  // some weird floating point error for large numbers, of course...
+  // const digits = []
+  // while (n !== 0) {
+  //   digits.push(n % 10)
+  //   n = Math.floor(n / 10)
+  // }
+  // return digits
 }
 
 export function* iterateDigits(n: number) {

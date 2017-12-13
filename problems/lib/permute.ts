@@ -1,9 +1,9 @@
-export function permute(ds: any[]) {
+export function permute<T>(ds: T[]): T[][] {
   if (ds.length === 1) {
     return [[ds[0]]]
   }
 
-  const sequences: number[][] = []
+  const sequences: T[][] = []
   for (const digit of ds) {
     const i = ds.indexOf(digit)
     const restDigits = [...ds.slice(0, i), ...ds.slice(i + 1)]

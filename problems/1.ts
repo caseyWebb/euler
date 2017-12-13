@@ -1,3 +1,5 @@
+export { }
+
 let sum: number = 0
 
 for (let v = 1; v < 1000; v++) {

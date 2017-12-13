@@ -1,3 +1,5 @@
+export { }
+
 let s = 0
 
 for (const n of evenFibsNotExceeding4M()) {

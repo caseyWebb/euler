@@ -27,6 +27,47 @@ export class BigNum {
     return this.digits.reduce((s, d) => s + d)
   }
 
+  // approximation, rounded down equivalent to Math.floor(Math.sqrt(n))
+  public sqrt(): BigNum {
+    const sqrtDigits = []
+    const pairs: number[] = []
+
+    for (let i = 0; i < this.digits.length; i += 2) {
+      const tens = this.digits[i + 1] * 10 || 0
+      const ones = this.digits[i]
+      pairs.unshift(tens + ones)
+    }
+
+    const leading = pairs.shift() as number
+    let remainder = 0
+
+    for (let i = 9; i > 0; i--) {
+      const square = Math.pow(i, 2)
+      if (leading >= square) {
+        sqrtDigits.push(i)
+        remainder = (leading - square) * 100 // pad for next two digits so we can just add
+        break
+      }
+    }
+
+    for (const pair of pairs) {
+      const dividend = remainder + pair
+      const divisorPrefix = parseInt(sqrtDigits.join(''), 10) * 2 * 10
+      let divisor = 0
+      for (let i = 0; i <= 9; i++) {
+        if ((divisorPrefix + i) * i <= dividend) {
+          divisor = i
+        } else {
+          break
+        }
+      }
+      sqrtDigits.push(divisor)
+      remainder = (dividend - (divisor * (divisorPrefix + divisor))) * 100
+    }
+
+    return new BigNum(...sqrtDigits.reverse())
+  }
+
   public static fromInt(n: number) {
     return new BigNum(...n.toString().split('').reverse().map((d) => parseInt(d, 10)))
   }
