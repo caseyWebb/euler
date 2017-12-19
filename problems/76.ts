@@ -4,15 +4,13 @@
 
 export { }
 
-function numSummations(n: number, max = n - 1) {
-  if (n === 0) {
-    return 1
-  }
-
+function numSummations(n: number, max: number) {
   let summations = 0
 
-  for (let i = 1; i <= max; i++) {
-    if (n >= i) {
+  for (let i = 1; i <= n && i <= max; i++) {
+    if (n - i === 0) {
+      summations++
+    } else {
       summations += numSummations(n - i, i)
     }
   }
@@ -20,4 +18,4 @@ function numSummations(n: number, max = n - 1) {
   return summations
 }
 
-console.log(numSummations(100))
+console.log(numSummations(100, 99))
