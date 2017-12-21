@@ -46,3 +46,27 @@ export function isPrime(n: number) {
   }
   return true
 }
+
+export function primeSieve(bound: number) {
+  const primes = new Array(bound)
+  primes[0] = false
+  primes[1] = false
+  primes[2] = true
+  primes[3] = true
+  primes[4] = false
+  primes[5] = true
+  primes[6] = false
+  primes[7] = true
+  for (let i = 8; i < bound; i++) primes[i] = i % 2 !== 0 && i % 3 !== 0 && i % 5 !== 0 && i % 7 !== 0
+  for (let i = 11; i <= bound / 2; i++) {
+    if (!primes[i]) continue
+    for (let j = 2; true; j++) {
+      const n = i * j
+      if (n > bound) {
+        break
+      }
+      primes[n] = false
+    }
+  }
+  return primes
+}

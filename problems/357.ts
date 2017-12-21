@@ -11,7 +11,7 @@
  * This means we only need to check n = p - 1
  */
 
-import { time } from './lib'
+import { primeSieve, time } from './lib'
 
 const UPPER_BOUND = 100000000
 
@@ -19,26 +19,7 @@ let sum = 0
 
 time(() => {
   // precompute primes
-  const isPrime = new Array(UPPER_BOUND)
-  isPrime[0] = false
-  isPrime[1] = false
-  isPrime[2] = true
-  isPrime[3] = true
-  isPrime[4] = false
-  isPrime[5] = true
-  isPrime[6] = false
-  isPrime[7] = true
-  for (let i = 8; i < UPPER_BOUND; i++) isPrime[i] = i % 2 !== 0 && i % 3 !== 0 && i % 5 !== 0 && i % 7 !== 0
-  for (let i = 11; i <= UPPER_BOUND / 2; i++) {
-    if (!isPrime[i]) continue
-    for (let j = 2; true; j++) {
-      const n = i * j
-      if (n > UPPER_BOUND) {
-        break
-      }
-      isPrime[n] = false
-    }
-  }
+  const isPrime = primeSieve(UPPER_BOUND)
 
   for (let i = 1; i < UPPER_BOUND; i++) {
     if (!isPrime[i]) continue
