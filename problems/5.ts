@@ -1,13 +1,6 @@
-const MAX = 20
-let i = MAX
+import { time } from './lib'
 
-while (true) {
-  if (divisibleBy1ThroughMax(i)) {
-    console.log(i)
-    break
-  }
-  i += 2 // stupid heuristic, skip odd numbers
-}
+const MAX = 20
 
 function divisibleBy1ThroughMax(n: number) {
   // continuation of stupid heuristic. don't worry about 2, start at 3
@@ -18,3 +11,14 @@ function divisibleBy1ThroughMax(n: number) {
   }
   return true
 }
+
+time(() => {
+  let i = MAX
+  while (true) {
+    if (divisibleBy1ThroughMax(i)) {
+      console.log(i)
+      break
+    }
+    i += 20 // stupid heuristic, skip odd numbers
+  }
+})

@@ -1,3 +1,5 @@
+export { }
+
 for (let a = 1; a < 1000; a++) {
   for (let b = 1; b < a; b++) {
     const c = getHypotenuse(a, b)

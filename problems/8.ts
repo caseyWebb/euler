@@ -1,3 +1,5 @@
+import { time } from './lib'
+
 const INPUT = `
   73167176531330624919225119674426574742355349194934
   96983520312774506326239578318016984801869478851843
@@ -19,21 +21,46 @@ const INPUT = `
   84580156166097919133875499200524063689912560717606
   05886116467109405077541002256983155200055935729725
   71636269561882670428252483600823257530420752963450
-`.replace(/\D/g, '')
+`
+  .replace(/\D/g, '')
+  .split('')
+  .map((n) => parseInt(n, 10))
+
 const LEN = 13
 
-let m = 0
+// let m = 0
 
-for (let i = 0; i < 1000 - LEN; i++) {
-  const p = INPUT
-    .substr(i, LEN)
-    .split('')
-    .map((n) => parseInt(n))
-    .reduce((accum, n) => accum * n)
-  
-  if (p > m) {
-    m = p
+// time(() => {
+//   for (let i = 0; i < 1000 - LEN; i++) {
+//     const p = INPUT
+//       .slice(i, i + LEN)
+//       .reduce((accum, n) => accum * n)
+
+//     if (p > m) {
+//       m = p
+//     }
+//   }
+// })
+
+let max = 0
+
+time(() => {
+  let current = INPUT.slice(0, LEN).reduce((accum, n) => accum * n)
+
+  max = current
+
+  for (let i = 0; i < 1000; i++) {
+    if (INPUT[i + LEN] === 0) {
+      i += LEN
+      current = INPUT.slice(i + 1, i + LEN + 1).reduce((accum, n) => accum * n)
+    } else {
+      current = (current / INPUT[i]) * INPUT[i + LEN]
+    }
+
+    if (current > max) {
+      max = current
+    }
   }
-}
+})
 
-console.log(m)
+console.log(max)
