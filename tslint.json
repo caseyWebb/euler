@@ -8,6 +8,7 @@
     "interface-over-type-literal": false,
     "member-ordering": [true, "instance-sandwich"],
     "no-boolean-literal-compare": true,
+    "no-console": false,
     "no-floating-promises": true,
     "no-for-in-array": true,
     "no-unnecessary-qualifier": true,
