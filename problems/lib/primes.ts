@@ -47,7 +47,7 @@ export function isPrime(n: number) {
   return true
 }
 
-export function primeSieve(bound: number) {
+export function primeSieve(bound: number): boolean[] {
   const primes = new Array(bound)
   primes[0] = false
   primes[1] = false

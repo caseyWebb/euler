@@ -1,29 +1,36 @@
-export { }
+import * as assert from 'assert'
+import * as Benchmark from 'benchmark'
 
-const primes = primeGenerator()
-let v = 0
+assert.equal(solution1(), 104743)
 
-for (let i = 0; i < 10001; i++) {
-  v = primes.next().value
-}
+const bench = new Benchmark.Suite()
 
-console.log(v)
+bench.add('original', solution1)
+bench.on('cycle', (e: any) => {
+  if (e.target.error) {
+    console.error(e.target.error)
+    process.exit(1)
+    return
+  }
+  console.log(e.target.toString())
+})
+bench.run()
 
-function* primeGenerator() {
-  let i = 2
-  while (true) {
+function solution1() {
+  function isPrime(n: number) {
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+      if (n % i === 0) {
+        return false
+      }
+    }
+    return true
+  }
+
+  let count = 0
+  let i = 1
+  while (i++) {
     if (isPrime(i)) {
-      yield i
-    }
-    i++
-  }
-}
-
-function isPrime(n: number) {
-  for (let i = 2; i <= Math.sqrt(n); i++) {
-    if (n % i === 0) {
-      return false
+      if (++count === 10001) return i
     }
   }
-  return true
 }
