@@ -9,6 +9,13 @@
     "typescript": "^2.6.1"
   },
   "devDependencies": {
-    "tslint": "^5.8.0"
+    "prettier": "^1.14.3",
+    "tslint": "^5.8.0",
+    "tslint-config-prettier": "^1.15.0"
+  },
+  "prettier": {
+    "arrowParens": "always",
+    "semi": "false",
+    "singleQuote": true
   }
 }
