@@ -1,5 +1,4 @@
-import * as fs from 'fs'
-import * as path from 'path'
+import { getInput } from './lib'
 
 const knownTriangleNumbers = new Set<number>()
 let maxCalculatedTriangleNumber = 0
@@ -26,11 +25,7 @@ function isTriangleWord(word: string) {
   return isTriangleNumber(sum)
 }
 
-fs.readFile(path.resolve(__dirname, '../input/42.txt'), (err, data) => {
-  if (err) {
-    throw err
-  }
-
+getInput('42').then((data) => {
   const numTriangleWords = data
     .toString()
     .replace(/"/g, '')

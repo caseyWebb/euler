@@ -1,5 +1,4 @@
-import * as fs from 'fs'
-import * as path from 'path'
+import { getInput } from './lib'
 
 const denominations: { [k: string]: number } = {
   I: 1,
@@ -81,9 +80,7 @@ function toNumeral(value: number) {
   return numeral
 }
 
-fs.readFile(path.resolve(__dirname, '../input/89.txt'), (err, buf) => {
-  if (err) throw err
-
+getInput('89').then((buf) => {
   const ret = buf
     .toString()
     .trim()

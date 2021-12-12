@@ -1,15 +1,10 @@
-import * as fs from 'fs'
-import * as path from 'path'
+import { getInput } from './lib'
 
 function score(name: string) {
   return name.split('').reduce((s, c) => s + c.charCodeAt(0) - 64, 0)
 }
 
-fs.readFile(path.resolve(__dirname, '../input/22.txt'), (err, data) => {
-  if (err) {
-    throw err
-  }
-
+getInput('22').then((data) => {
   const sum = data
     .toString()
     .replace(/"/g, '')

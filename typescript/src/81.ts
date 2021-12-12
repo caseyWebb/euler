@@ -1,12 +1,6 @@
-import * as fs from 'fs'
-import * as path from 'path'
-import { time } from './lib'
+import { getInput, time } from './lib'
 
-fs.readFile(path.resolve(__dirname, '../input/81.txt'), (err, data) => {
-  if (err) {
-    throw err
-  }
-
+getInput('81').then((data) => {
   const matrix = data
     .toString()
     .trim()

@@ -1,7 +1,6 @@
-import * as fs from 'fs'
-import * as path from 'path'
+import { getInput } from './lib'
 
-const triangle = fs.readFile(path.resolve(__dirname, '../input/67.txt'), (err, data) => {
+const triangle = getInput('67').then((data) => {
   const t: number[][] = data
     .toString()
     .split('\n')

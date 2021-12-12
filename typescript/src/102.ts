@@ -1,5 +1,4 @@
-import * as fs from 'fs'
-import * as path from 'path'
+import { getInput } from './lib'
 
 type Triangle = [number, number, number, number, number, number]
 
@@ -28,9 +27,7 @@ function solve(triangles: Triangle[]) {
   console.log(triangles.filter(containsVertex).length)
 }
 
-fs.readFile(path.resolve(__dirname, '../input/102.txt'), (err, buf) => {
-  if (err) throw err
-
+getInput('102').then((buf) => {
   const TRIANGLES: Triangle[] = buf
     .toString()
     .split('\n')

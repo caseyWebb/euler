@@ -1,6 +1,7 @@
 export * from './BigNum'
 export * from './digits'
 export * from './factorial'
+export * from './getInput'
 export * from './palindromes'
 export * from './permute'
 export * from './primes'

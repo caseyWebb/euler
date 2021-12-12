@@ -1,6 +1,4 @@
-import * as fs from 'fs'
-import * as path from 'path'
-import { time } from './lib'
+import { getInput, time } from './lib'
 
 const COMMON_WORDS = [
   'the',
@@ -42,11 +40,7 @@ function hasCommonWords(str: string) {
   return COMMON_WORDS.some((word) => str.indexOf(' ' + word + ' ') > -1)
 }
 
-fs.readFile(path.resolve(__dirname, '../input/59.txt'), (err, data) => {
-  if (err) {
-    throw err
-  }
-
+getInput('59').then((data) => {
   const encryptedChars = data.toString().split(',').map((c) => parseInt(c, 10))
   let decrypted = ''
   time('Decrypt', () => {

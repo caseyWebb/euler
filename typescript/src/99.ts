@@ -1,11 +1,6 @@
-import * as fs from 'fs'
-import * as path from 'path'
+import { getInput } from './lib'
 
-fs.readFile(path.resolve(__dirname, '../input/99.txt'), (err, data) => {
-  if (err) {
-    throw err
-  }
-
+getInput('99').then((data) => {
   const pairs = data
     .toString()
     .trim()

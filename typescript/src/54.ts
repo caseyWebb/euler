@@ -1,6 +1,4 @@
-import * as fs from 'fs'
-import * as path from 'path'
-import { time } from './lib'
+import { getInput, time } from './lib'
 
 type Rank = {
   rank: RANKS
@@ -197,11 +195,7 @@ function getWinner([p1Hand, p2Hand]: string[][]) {
   }
 }
 
-fs.readFile(path.resolve(__dirname, '../input/54.txt'), (err, data) => {
-  if (err) {
-    throw err
-  }
-
+getInput('54').then((data) => {
   let p1Wins = 0
 
   time(() => {
